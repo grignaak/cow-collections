@@ -435,6 +435,11 @@ public final class CowTreeMap<K,V> extends AbstractMap<K,V> implements CowOrdere
     private int size;
     private Node<K,V> root;
 
+    public CowTreeMap(Comparator<K> comparator) {
+        //noinspection unchecked
+        this(EMPTY_NODE.generation + 1, 0, (Node<K, V>) EMPTY_NODE, comparator);
+    }
+
     private CowTreeMap(long generation, int size, Node<K, V> root, Comparator<K> comparator) {
         this.size = size;
         this.root = root;
@@ -871,9 +876,5 @@ public final class CowTreeMap<K,V> extends AbstractMap<K,V> implements CowOrdere
         return new CowTreeMap<>(++generation, size, root, comparator);
     }
 
-    public static <K,V> CowOrderedMap<K,V> create(Comparator<K> comparator) {
-        Node<K, V> root = emptyNode();
-        return new CowTreeMap<>(root.generation + 1, 0, root, comparator);
-    }
     //endregion
 }

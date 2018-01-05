@@ -1,4 +1,4 @@
-group 'ggnk'
+group 'ggnk.collections'
 version '1.0-alpha'
 
 apply plugin: 'java'

@@ -24,6 +24,6 @@ import java.util.Map;
  * ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
  * </pre></p>
  */
-public interface CowMap<K,V> extends Map<K,V> {
+public interface CowMap<K,V> extends Map<K,V>, Forkable {
     CowMap<K, V> fork();
 }

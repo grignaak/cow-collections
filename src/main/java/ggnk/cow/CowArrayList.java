@@ -1,11 +1,11 @@
 package ggnk.cow;
 
-import javax.annotation.CheckForNull;
 import java.util.AbstractList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.RandomAccess;
+import javax.annotation.CheckForNull;
 
 import ggnk.cow.impl.Box;
 import ggnk.cow.impl.MoreArrays;
@@ -34,7 +34,11 @@ public final class CowArrayList<E> extends AbstractList<E> implements CowList<E>
     
     private long generation;
 
-    CowArrayList(long generation, int size, int shift, Node root, Object[] tail) {
+    public CowArrayList() {
+        this(EMPTY_NODE.generation + 1, 0, 5, EMPTY_NODE, new Object[32]);
+    }
+
+    private CowArrayList(long generation, int size, int shift, Node root, Object[] tail) {
         this.generation = generation;
         this.size = size;
         this.shift = shift;
@@ -42,7 +46,7 @@ public final class CowArrayList<E> extends AbstractList<E> implements CowList<E>
         this.tail = tail;
     }
 
-    //region pulled down TODO
+    //region pulled down
 
     protected static final int LOW_5_BITS_MASK = 0x1f;
     protected static final int HIGH_27_BITS_MASK = ~LOW_5_BITS_MASK;
@@ -228,13 +232,13 @@ public final class CowArrayList<E> extends AbstractList<E> implements CowList<E>
         }
     }
 
-    protected static final Object[] EMPTY_ARRAY = new Object[0];
-    protected static final Node EMPTY_NODE = new Node(-1, EMPTY_ARRAY);
+    private static final Object[] EMPTY_ARRAY = new Object[0];
+    private static final Node EMPTY_NODE = new Node(-1, EMPTY_ARRAY);
 
-    protected Node root;
-    protected Object[] tail;
-    protected int size;
-    protected int shift;
+    private Node root;
+    private Object[] tail;
+    private int size;
+    private int shift;
 
 
     static int childPosition(int index, int level) {
@@ -292,7 +296,7 @@ public final class CowArrayList<E> extends AbstractList<E> implements CowList<E>
      * Length of the tail. Since all the nodes have 32 children, the tail
      * starts at {@code (size-1) % 32}.
      */
-    protected final int tailLength() {
+    private final int tailLength() {
         return size - tailOffset();
     }
 
@@ -301,37 +305,13 @@ public final class CowArrayList<E> extends AbstractList<E> implements CowList<E>
     }
     //endregion
 
-    //region migrated TODO
-
-    public static <E> CowList<E> create() {
-        return new CowArrayList<>(EMPTY_NODE.generation + 1, 0, 5, EMPTY_NODE, new Object[32]);
-
-    }
+    //region migrated
 
     @Override
     public CowList<E> fork() {
         return new CowArrayList<>(++generation, size, shift, root, tail.clone());
     }
 
-    //    /**
-//     * Make a copy of the iterable, inserting items in the same order as the iteration.
-//     *
-//     * <p>An attempt is made to share structure with the source, if possible</p>
-//     */
-//    public static <E> CowList<E> copy(Iterable<E> src) {
-//        if (src instanceof CowArrayList<?>) {
-//            return (CowList<E>) src;
-//        } else if (src instanceof CowArrayList<?>) {
-//            CowArrayList<E> that = (CowArrayList<E>) src;
-//            return that.pessimisticCopy();
-//        } else {
-//            Builder<E> builder = newBuilder();
-//            for (E e : src) {
-//                builder.add(e);
-//            }
-//            return builder.build();
-//        }
-//    }
     //endregion
 
 

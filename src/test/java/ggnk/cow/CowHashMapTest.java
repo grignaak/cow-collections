@@ -27,7 +27,7 @@ import org.junit.rules.ErrorCollector;
 public class CowHashMapTest {
     @Rule public final ErrorCollector errors = new ErrorCollector();
 
-    private final CowMap<Object, Integer> b = CowHashMap.create();
+    private final CowMap<Object, Integer> b = new CowHashMap<>();
     private final Set<Entry<Object, Integer>> es = b.entrySet();
     private final Set<Object> ks = b.keySet();
 

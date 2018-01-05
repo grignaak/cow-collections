@@ -13,6 +13,6 @@ import java.util.Collection;
  * thread and then publish its fork to any number of reader threads. These reader threads can safely read their copy of
  * the fork while concurrent updates are happening.</p>
  */
-public interface CowCollection<E> extends Collection<E> {
+public interface CowCollection<E> extends Collection<E>, Forkable {
     CowCollection<E> fork();
 }

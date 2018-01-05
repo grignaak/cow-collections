@@ -25,7 +25,7 @@ public class CowTreeMapTest {
     @Rule public final ErrorCollector asserts = new ErrorCollector();
     @Rule public final ExpectedException thrown = ExpectedException.none();
 
-    private CowOrderedMap<String, Object> b = CowTreeMap.create(Comparator.<String>naturalOrder());
+    private CowOrderedMap<String, Object> b = new CowTreeMap<>(Comparator.<String>naturalOrder());
 
     @Test
     public void actOnEmptyMap() {

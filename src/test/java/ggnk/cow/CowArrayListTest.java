@@ -15,7 +15,7 @@ public class CowArrayListTest {
     @Rule public final ErrorCollector asserts = new ErrorCollector();
 
     private final List<String> expected = new ArrayList<>();
-    private CowList<String> b = CowArrayList.create();
+    private CowList<String> b = new CowArrayList<>();
 
     @Test
     public void simplePushAndPop() {

@@ -832,7 +832,12 @@ public class CowHashMap<K,V> implements CowMap<K,V> {
     protected BitmapIndexNode<K,V> root;
     protected int size;
 
-    CowHashMap(long generation, BitmapIndexNode<K,V> root, int size) {
+    public CowHashMap() {
+        //noinspection unchecked
+        this(EMPTY_NODE.generation + 1, (BitmapIndexNode<K, V>) EMPTY_NODE, 0);
+    }
+
+    private CowHashMap(long generation, BitmapIndexNode<K,V> root, int size) {
         this.generation = generation;
         this.root = root;
         this.size = size;
@@ -1047,8 +1052,6 @@ public class CowHashMap<K,V> implements CowMap<K,V> {
     //region Migration from old style
     // TODO reorganize
 
-    private static final CowHashMap<?,?> EMPTY = new CowHashMap<>(0, EMPTY_NODE, 0);
-
     @Override
     public int hashCode() {
         int hash = size;
@@ -1060,29 +1063,6 @@ public class CowHashMap<K,V> implements CowMap<K,V> {
         }
 
         return hash;
-    }
-
-//    /**
-//     * Copy the source map. The two maps will share structure if possible.
-//     */
-//    TODO
-//    public static <K, V> CowMap<K,V> copy(Map<K, V> src) {
-//        if (src instanceof CowHashMap<?,?>) {
-//            return (CowHashMap<K,V>) src;
-//        } else if (src instanceof CowHashMapBuilder<?,?>) {
-//            CowHashMapBuilder<K, V> that = (CowHashMapBuilder<K, V>) src;
-//            return that.pessimisticCopy();
-//        } else {
-//            CowMap.Builder<K, V> builder = newBuilder();
-//            builder.putAll(src);
-//            return builder.build();
-//        }
-//    }
-
-    public static <K,V> CowMap<K,V> create() {
-        @SuppressWarnings("unchecked")
-        CowMap<K, V> empty = (CowHashMap<K,V>) EMPTY;
-        return empty.fork();
     }
 
     private long generation;
@@ -1121,8 +1101,7 @@ public class CowHashMap<K,V> implements CowMap<K,V> {
 
     @Override
     public CowMap<K, V> fork() {
-        generation++;
-        return new CowHashMap<K, V>(generation, root, size);
+        return new CowHashMap<>(++generation, root, size);
     }
 
     //endregion
