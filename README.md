@@ -1,7 +1,9 @@
 # Copy-on-write Collections
 
+![Current version][version-img]
+![Develepment version][snap-version-img]
 ![Cow][cow-image]
-[![License][license-image]][license-url]
+[![MIT License][license-image]][license-url]
 
 
 The collections in this library are efficient implementations of the
@@ -181,3 +183,4 @@ come before.
 [license-url]:            LICENSE
 [cow-image]:              https://img.shields.io/badge/Cow-🐄-eeeeee.svg
 [version-img]:            https://img.shields.io/badge/Version-0.9.16_(Beta)-yellow.svg
+[snap-version-img]:       https://img.shields.io/badge/Development-0.9.16--SNAPSHOT-yellow.svg

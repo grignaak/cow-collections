@@ -11,9 +11,15 @@ import ggnk.cow.impl.Box;
 import ggnk.cow.impl.MoreArrays;
 
 /**
- * An array-based copy-on-write list, where pushing and popping from the end are
- * amortized constant time, access and updates are sub-linear (nearly constant).
- * Insertion and removal from anywhere not the end of the list are linear in time.
+ * An array-based copy-on-write list, where pushing and popping from the end are amortized constant time, access and
+ * updates are sub-linear (nearly constant). Insertion and removal from anywhere not the end of the list are linear in
+ * time.
+ *
+ * <h3>Implementation notes</h3>
+ *
+ * The current implementation (subject to change) is a 32-way trie, with a length-32 tail. In practice this means that
+ * structural sharing doesn't start until after the list has 32 entries; and then happens at 32-entry chunks. We found
+ * this to utilize cache lines and also be a good balance in structural sharing.
  */
 public final class CowArrayList<E> extends AbstractList<E> implements CowList<E>, RandomAccess {
     /*

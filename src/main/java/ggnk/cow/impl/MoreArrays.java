@@ -1,5 +1,6 @@
 package ggnk.cow.impl;
 
+@Beta
 public class MoreArrays {
     private MoreArrays() {/* utility */}
 

@@ -1,5 +1,6 @@
 package ggnk.cow.impl;
 
+@Beta
 public class Box<T> {
     private T boxed;
 

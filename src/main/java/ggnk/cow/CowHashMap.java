@@ -19,8 +19,14 @@ import ggnk.cow.impl.MoreArrays;
 import ggnk.cow.impl.Search;
 
 /**
- * A hash-based copy-on-write map, where the get operation and the builder's put,
- * update, and delete operations each take sub-linear (near-constant) time.
+ * A hash-based copy-on-write map, where the get operation and the builder's put, update, and delete operations each
+ * take sub-linear (near-constant) time.
+ *
+ * <h3>Implementation notes</h3>
+ *
+ * This current implementation (subject to change) is a MEM-CHAMP variant of Bagwell's HAMT, a 32-way trie. In practice
+ * this means that structural happens at 32-entry chunks. We found this to utilize cache lines and also be a good
+ * balance in structural sharing.
  */
 public class CowHashMap<K,V> implements CowMap<K,V> {
     /*

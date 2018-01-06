@@ -3,6 +3,7 @@ package ggnk.cow.impl;
 /**
  * Can't use Optional as search results b/c null values can also mean "present".
  */
+@Beta
 public class Search<T> {
     private static final Search<?> NOT_FOUND = new Search<>(null);
 

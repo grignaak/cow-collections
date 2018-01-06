@@ -14,5 +14,9 @@ import java.util.Map;
  * of the fork while concurrent updates are happening.</p>
  */
 public interface CowMap<K,V> extends Map<K,V>, Forkable {
+    /**
+     * Create an independent copy of this map, where mutations on the returned instance do not affect this instance
+     * and vice versa. Typically uses structural sharing on larger maps.
+     */
     CowMap<K, V> fork();
 }

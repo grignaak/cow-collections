@@ -13,7 +13,13 @@ import javax.annotation.Nonnull;
 import ggnk.cow.impl.MoreArrays;
 
 /**
- * An ordered copy-on-write-map, utilizing shared structure when feasible.
+ * An ordered copy-on-write map, utilizing shared structure when feasible.
+ *
+ * <h3>Implementation notes</h3>
+ *
+ * The current implementation (subject to change) is a 32-way b-tree. In practice this means that structural sharing
+ * doesn't start until after the map has 32 entries; and then happens at 32-entry chunks. We found this to utilize cache
+ * lines and also be a good balance in structural sharing.
  */
 public final class CowTreeMap<K,V> extends AbstractMap<K,V> implements CowOrderedMap<K,V> {
     static final int MIN_CHILDREN = 16;

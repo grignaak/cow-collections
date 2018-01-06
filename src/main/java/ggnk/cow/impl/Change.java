@@ -10,6 +10,7 @@ package ggnk.cow.impl;
  *     <li>replacedValue != null implies isReplaced</li>
  * </ul>
  */
+@Beta
 public class Change<V> {
     private V replacedValue;
     private boolean isModified;
