@@ -14,15 +14,6 @@ import ggnk.cow.impl.MoreArrays;
  * An array-based copy-on-write list, where pushing and popping from the end are
  * amortized constant time, access and updates are sub-linear (nearly constant).
  * Insertion and removal from anywhere not the end of the list are linear in time.
- *
- * <pre>
- *  _(__)_        V
- * '-e e -'__,--.__)
- *  (o_o)        )
- *     \. /___.  |
- *     ||| _)/_)/
- * gnv//_(/_(/_(
- * </pre>
  */
 public final class CowArrayList<E> extends AbstractList<E> implements CowList<E>, RandomAccess {
     /*

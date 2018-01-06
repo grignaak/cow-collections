@@ -21,15 +21,6 @@ import ggnk.cow.impl.Search;
 /**
  * A hash-based copy-on-write map, where the get operation and the builder's put,
  * update, and delete operations each take sub-linear (near-constant) time.
- *
- * <p><pre>
- *          (__)
- *          (oo)
- *    /------\/
- *   / |    ||
- *  *  /\---/\
- *     ~~   ~~
- * </pre></p>
  */
 public class CowHashMap<K,V> implements CowMap<K,V> {
     /*

@@ -1,6 +1,8 @@
 # Copy-on-write Collections
 
+![Cow][cow-image]
 [![License][license-image]][license-url]
+
 
 The collections in this library are efficient implementations of the
 standard JDK collections where mutating one reference of a data
@@ -20,7 +22,23 @@ gnv//_(/_(/_(
 
 ## Getting started
 
-TBD after upload to maven central
+Add the following to your repository
+
+**Apache Maven**
+
+```xml
+<dependency>
+    <groupId>com.github.grignaak.collections</groupId>
+    <artifactId>cow-collections</artifactId>
+    <version>0.9.16</version>
+</dependency>
+```
+
+**Gradle**
+
+```groovy
+compile 'com.github.grignaak.collections:cow-collections:0.9.16'
+```
 
 ## Efficient copy-on-write through versioning
 
@@ -159,5 +177,7 @@ come before.
 [guava-colls]: https://github.com/google/guava/wiki/ImmutableCollectionsExplained
 [clj-ds]: https://github.com/krukow/clj-ds
 
-[license-image]:          http://img.shields.io/badge/license-MIT-blue.svg?style=flat
+[license-image]:          http://img.shields.io/badge/license-MIT-blue.svg
 [license-url]:            LICENSE
+[cow-image]:              https://img.shields.io/badge/Cow-🐄-eeeeee.svg
+[version-img]:            https://img.shields.io/badge/Version-0.9.16_(Beta)-yellow.svg

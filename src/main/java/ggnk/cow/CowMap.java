@@ -12,17 +12,6 @@ import java.util.Map;
  * <p>The major purpose of a copy-on-write map is thread safety. A common idiom is to make updates to the collection in
  * one thread and then publish its fork to any number of reader threads. These reader threads can safely read their copy
  * of the fork while concurrent updates are happening.</p>
- *
- * <p><pre>
- *                              __.----.___
- *  ||            ||  (\(__)/)-'||      ;--` ||
- * _||____________||___`(QQ)'___||______;____||_
- * -||------------||----)  (----||-----------||-
- * _||____________||___(o  o)___||______;____||_
- * -||------------||----`--'----||-----------||-
- *  ||            ||       `|| ||| || ||     ||jgs
- * ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
- * </pre></p>
  */
 public interface CowMap<K,V> extends Map<K,V>, Forkable {
     CowMap<K, V> fork();
