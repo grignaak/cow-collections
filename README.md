@@ -2,6 +2,7 @@
 
 ![Current version][version-img]
 ![Develepment version][snap-version-img]
+[![Build Status][travis-img]][travis-url]
 ![Cow][cow-image]
 [![MIT License][license-image]][license-url]
 
@@ -172,15 +173,18 @@ come before.
                  /__I                  /__I   fsc
 ```
 
-[wiki-colls]: https://en.wikipedia.org/wiki/Persistent_data_structure
-[p-colls]: https://pcollections.org/
-[clojure-colls]: https://clojure.org/reference/data_structures
-[clojure-trans]: https://clojure.org/reference/transients
-[guava-colls]: https://github.com/google/guava/wiki/ImmutableCollectionsExplained
-[clj-ds]: https://github.com/krukow/clj-ds
+[wiki-colls]:       https://en.wikipedia.org/wiki/Persistent_data_structure
+[p-colls]:          https://pcollections.org/
+[clojure-colls]:    https://clojure.org/reference/data_structures
+[clojure-trans]:    https://clojure.org/reference/transients
+[guava-colls]:      https://github.com/google/guava/wiki/ImmutableCollectionsExplained
+[clj-ds]:           https://github.com/krukow/clj-ds
 
 [license-image]:          http://img.shields.io/badge/license-MIT-blue.svg
 [license-url]:            LICENSE
 [cow-image]:              https://img.shields.io/badge/Cow-🐄-eeeeee.svg
 [version-img]:            https://img.shields.io/badge/Version-0.9.16_(Beta)-yellow.svg
 [snap-version-img]:       https://img.shields.io/badge/Development-0.10.0--SNAPSHOT-yellow.svg
+
+[travis-img]:   https://travis-ci.org/grignaak/cow-collections.svg?branch=master
+[travis-url]:   https://travis-ci.org/grignaak/cow-collections
