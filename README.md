@@ -179,6 +179,7 @@ come before.
 [clojure-trans]:    https://clojure.org/reference/transients
 [guava-colls]:      https://github.com/google/guava/wiki/ImmutableCollectionsExplained
 [clj-ds]:           https://github.com/krukow/clj-ds
+[jdk-cowlist]:      https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/CopyOnWriteArrayList.html
 
 [license-image]:          http://img.shields.io/badge/license-MIT-blue.svg
 [license-url]:            LICENSE
