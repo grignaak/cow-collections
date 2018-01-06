@@ -183,4 +183,4 @@ come before.
 [license-url]:            LICENSE
 [cow-image]:              https://img.shields.io/badge/Cow-🐄-eeeeee.svg
 [version-img]:            https://img.shields.io/badge/Version-0.9.16_(Beta)-yellow.svg
-[snap-version-img]:       https://img.shields.io/badge/Development-0.9.16--SNAPSHOT-yellow.svg
+[snap-version-img]:       https://img.shields.io/badge/Development-0.10.0--SNAPSHOT-yellow.svg
