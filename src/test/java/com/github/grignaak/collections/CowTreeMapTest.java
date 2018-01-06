@@ -1,4 +1,4 @@
-package ggnk.cow;
+package com.github.grignaak.collections;
 
 import static org.hamcrest.Matchers.hasEntry;
 import static org.hamcrest.Matchers.is;

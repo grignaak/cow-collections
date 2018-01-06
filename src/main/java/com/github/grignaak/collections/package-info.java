@@ -6,4 +6,4 @@
  * Most implementations share data between the new and old versions of the data-structure to reduce overhead from memory,
  * copying, and garbage collection.</p>
  */
-package ggnk.cow;
+package com.github.grignaak.collections;

@@ -1,4 +1,4 @@
-package ggnk.cow;
+package com.github.grignaak.collections;
 
 import static java.lang.Integer.bitCount;
 
@@ -14,9 +14,9 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.function.BiConsumer;
 
-import ggnk.cow.impl.Change;
-import ggnk.cow.impl.MoreArrays;
-import ggnk.cow.impl.Search;
+import com.github.grignaak.collections.impl.MoreArrays;
+import com.github.grignaak.collections.impl.Search;
+import com.github.grignaak.collections.impl.Change;
 
 /**
  * A hash-based copy-on-write map, where the get operation and the builder's put, update, and delete operations each

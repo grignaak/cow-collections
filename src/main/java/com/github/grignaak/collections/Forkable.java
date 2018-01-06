@@ -1,6 +1,6 @@
-package ggnk.cow;
+package com.github.grignaak.collections;
 
-import ggnk.cow.impl.Beta;
+import com.github.grignaak.collections.impl.Beta;
 
 /**
  * An object that can efficiently fork itself into a copy; typically with structural sharing on large objects.

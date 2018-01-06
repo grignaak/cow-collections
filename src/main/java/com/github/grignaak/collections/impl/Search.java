@@ -1,4 +1,4 @@
-package ggnk.cow.impl;
+package com.github.grignaak.collections.impl;
 
 /**
  * Can't use Optional as search results b/c null values can also mean "present".

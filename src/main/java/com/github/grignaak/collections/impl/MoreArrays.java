@@ -1,4 +1,4 @@
-package ggnk.cow.impl;
+package com.github.grignaak.collections.impl;
 
 @Beta
 public class MoreArrays {

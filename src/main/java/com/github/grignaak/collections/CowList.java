@@ -1,4 +1,4 @@
-package ggnk.cow;
+package com.github.grignaak.collections;
 
 import java.util.List;
 

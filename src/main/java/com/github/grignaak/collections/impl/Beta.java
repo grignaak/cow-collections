@@ -1,4 +1,4 @@
-package ggnk.cow.impl;
+package com.github.grignaak.collections.impl;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

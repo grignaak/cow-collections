@@ -1,4 +1,4 @@
-package ggnk.cow.impl;
+package com.github.grignaak.collections.impl;
 
 /**
  * This gets passed to nodes during an update so the inner leaves can return modification

@@ -1,4 +1,4 @@
-package ggnk.cow;
+package com.github.grignaak.collections;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;

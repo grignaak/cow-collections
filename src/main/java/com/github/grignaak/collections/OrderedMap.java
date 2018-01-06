@@ -1,8 +1,8 @@
-package ggnk.cow;
+package com.github.grignaak.collections;
 
 import java.util.Map;
 
-import ggnk.cow.impl.Beta;
+import com.github.grignaak.collections.impl.Beta;
 
 /**
  * A map ordered by keys. This is similar to {@link java.util.NavigableMap} but simpler.

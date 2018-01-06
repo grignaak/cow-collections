@@ -1,4 +1,4 @@
-package ggnk.cow;
+package com.github.grignaak.collections;
 
 import org.junit.Test;
 

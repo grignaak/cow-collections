@@ -1,4 +1,4 @@
-package ggnk.cow;
+package com.github.grignaak.collections;
 
 import java.util.AbstractList;
 import java.util.Arrays;
@@ -7,8 +7,8 @@ import java.util.Collections;
 import java.util.RandomAccess;
 import javax.annotation.CheckForNull;
 
-import ggnk.cow.impl.Box;
-import ggnk.cow.impl.MoreArrays;
+import com.github.grignaak.collections.impl.Box;
+import com.github.grignaak.collections.impl.MoreArrays;
 
 /**
  * An array-based copy-on-write list, where pushing and popping from the end are amortized constant time, access and

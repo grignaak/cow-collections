@@ -1,4 +1,4 @@
-package ggnk.cow;
+package com.github.grignaak.collections;
 
 import java.util.AbstractMap;
 import java.util.AbstractSet;
@@ -10,7 +10,7 @@ import java.util.Objects;
 import java.util.Set;
 import javax.annotation.Nonnull;
 
-import ggnk.cow.impl.MoreArrays;
+import com.github.grignaak.collections.impl.MoreArrays;
 
 /**
  * An ordered copy-on-write map, utilizing shared structure when feasible.

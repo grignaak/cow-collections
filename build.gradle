@@ -1,5 +1,5 @@
-group 'com.github.grignaak.collections'
-version '0.9.17-SNAPSHOT'
+group 'com.github.grignaak'
+version '0.10.0-SNAPSHOT'
 
 apply plugin: 'java'
 
