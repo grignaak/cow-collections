@@ -1,6 +1,8 @@
 group 'com.github.grignaak'
 version '0.10.0-SNAPSHOT'
 
+ext.isReleaseVersion = !version.endsWith("SNAPSHOT")
+
 apply plugin: 'java'
 
 apply plugin: 'maven'
@@ -38,11 +40,12 @@ artifacts {
 }
 
 signing {
+    required { isReleaseVersion && gradle.taskGraph.hasTask("uploadArchives") }
     sign configurations.archives
 }
 
-def sonatypeUser = project.hasProperty('sonatypeUsername') ? sonatypeUsername : ""
-def sonatypePass = project.hasProperty('sonatypePassword') ? sonatypePassword : ""
+def sonatypeUser = project.hasProperty('sonatypeUsername') ? sonatypeUsername : null
+def sonatypePass = project.hasProperty('sonatypePassword') ? sonatypePassword : null
 
 uploadArchives {
     repositories {
