@@ -13,7 +13,7 @@ import javax.annotation.Nonnull;
 import com.github.grignaak.collections.impl.MoreArrays;
 
 /**
- * An ordered copy-on-write map, utilizing shared structure when feasible.
+ * An ordered, tree-based copy-on-write map, utilizing shared structure when feasible.
  *
  * <h3>Implementation notes</h3>
  *
@@ -441,6 +441,9 @@ public final class CowTreeMap<K,V> extends AbstractMap<K,V> implements CowOrdere
     private int size;
     private Node<K,V> root;
 
+    /**
+     * @param comparator (try using {@link Comparator#naturalOrder()})
+     */
     public CowTreeMap(Comparator<K> comparator) {
         //noinspection unchecked
         this(EMPTY_NODE.generation + 1, 0, (Node<K, V>) EMPTY_NODE, comparator);

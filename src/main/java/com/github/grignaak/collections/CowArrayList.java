@@ -11,9 +11,9 @@ import com.github.grignaak.collections.impl.Box;
 import com.github.grignaak.collections.impl.MoreArrays;
 
 /**
- * An array-based copy-on-write list, where pushing and popping from the end are amortized constant time, access and
- * updates are sub-linear (nearly constant). Insertion and removal from anywhere not the end of the list are linear in
- * time.
+ * An array-based copy-on-write list, where pushing and popping from the end are amortized constant time. Access and
+ * updates anywhere in the list are sub-linear (nearly constant). Insertion and removal from anywhere not near the end
+ * of the list are linear in time.
  *
  * <h3>Implementation notes</h3>
  *

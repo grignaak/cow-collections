@@ -25,7 +25,7 @@ gnv//_(/_(/_(
 
 ## Getting started
 
-Add the following to your repository
+Add the following to your build script
 
 **Apache Maven**
 
@@ -43,54 +43,7 @@ Add the following to your repository
 compile 'com.github.grignaak.collections:cow-collections:0.9.16'
 ```
 
-## Efficient copy-on-write through versioning
-
-We claim to be both copy-on-write and efficient. This is not a
-contradiction.
-
-Some copy-on-write and implementations, such as JDK's
-[CopyOnWriteArrayList][jdk-cowlist] and Guava's [Immutable
-collections][guava-colls] copy element on every mutation; which is a
-waste of time and memory.
-
-Persistent data structures save time and memory by partially sharing
-structure with the pre-mutation version of itself. For example, removing
-the `nth` element from a list in one version can share the remaining
-`0..n-1` elements with the prior version.
-
-Other persistent collection implementations, such as
-[pcollections][p-colls] and [clojure's][clojure-colls] return a new
-version for *every* mutation; which we think is both confusing and
-wasteful. Confusing because the developer must remember to re-assign
-the variable after every mutation and wasteful because it doesn't allow
-efficient bulk updates. Clojure improves on this with its [transient
-collections][clojure-trans], allowing the data structure to switch modes
-for bulk-update operations, then switch back for PCollections-style
-immutable mode.
-
-Our collections are even simpler. Our collections are by default
-mutable, and can be used just like their JDK cohorts. *They can be final
-fields* and final variables because they don't need to be reassigned on
-updates.
-
-The developer decides when it is time to safely share the collection by
-*forking** the data structure. `fork()` returns a new instance of the
-collection---sharing structure with the original---where both the new
-and original instances can efficiently mutate its own copy. Or the fork
-can safely be sent to another thread for reading while the original can
-still be updated in the orignal thread.
-
-```text
-          (    )
-           (oo)
-  )\.-----/(O O)
- # ;       / u
-   (  .   |} )
-    |/ `.;|/;
-    "     " "
-```
-
-## Example
+### Example
 
 ```java
 CowList<String> beatles = new CowList<>()
@@ -115,6 +68,53 @@ System.out.println("famous: " + famous);
 //
 // beatles: [john, paul, george, ringo, pete]
 // famous: [john, paul, george, ringo, peter, paul, mary]
+```
+
+## Efficient copy-on-write through versioning
+
+We claim to be both copy-on-write and efficient. This is not a
+contradiction.
+
+Some copy-on-write and implementations, such as JDK's
+[CopyOnWriteArrayList][jdk-cowlist] and Guava's [Immutable
+collections][guava-colls] copy element on every mutation; which is a
+waste of time and memory.
+
+Persistent data structures save time and memory by partially sharing
+structure with the pre-mutation version of itself. For example, removing
+the `nth` element from a list in one version can share the remaining
+`0..n-1` elements with the prior version.
+
+Other persistent collection implementations, such as
+[PCollections'][p-colls] and [clojure's][clojure-colls] return a new
+version for *every* mutation; which we think is both confusing and
+wasteful. Confusing because the developer must remember to re-assign the
+variable after every mutation and wasteful because it doesn't allow
+efficient bulk updates. Clojure improves on this with its [transient
+collections][clojure-trans], allowing the data structure to switch modes
+for bulk-update operations then switch back for PCollections-style
+immutable mode.
+
+Our collections are even simpler. Our collections are by default
+mutable, and can be used just like their JDK counterparts. *They can be
+final fields and final variables* because they don't need to be
+reassigned on updates.
+
+The developer decides when it is time to safely share the collection by
+*forking* the data structure. `fork()` returns a new instance of the
+collection---sharing structure with the original---where both the new
+and original instances can efficiently mutate its own copy. Or the fork
+can safely be sent to another thread for reading while the original can
+still be updated in the original thread.
+
+```text
+          (    )
+           (oo)
+  )\.-----/(O O)
+ # ;       / u
+   (  .   |} )
+    |/ `.;|/;
+    "     " "
 ```
 
 ## Related Projects and Inspiration
