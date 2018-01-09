@@ -1,6 +1,7 @@
 # Copy-on-write Collections
 
 ![Current version][version-img]
+[![Javadoc][javadoc-img]][javadoc-url]
 ![Develepment version][snap-version-img]
 [![Build Status][travis-img]][travis-url]
 ![Cow][cow-image]
@@ -184,7 +185,10 @@ come before.
 [license-image]:          http://img.shields.io/badge/license-MIT-blue.svg
 [license-url]:            LICENSE
 [cow-image]:              https://img.shields.io/badge/Cow-🐄-eeeeee.svg
+[javadoc-img]:            https://javadoc.io/badge/com.github.grignaak/cow-collections.svg
+[javadoc-url]:            https://javadoc.io/doc/com.github.grignaak/cow-collections
 [version-img]:            https://img.shields.io/badge/Version-0.10.0_(Beta)-yellow.svg
+[version-url]:            https://search.maven.org/#artifactdetails%7Ccom.github.grignaak%7Ccow-collections%7C0.10.0%7Cjar
 [snap-version-img]:       https://img.shields.io/badge/Development-0.10.1--SNAPSHOT-yellow.svg
 
 [travis-img]:   https://travis-ci.org/grignaak/cow-collections.svg?branch=master
