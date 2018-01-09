@@ -881,7 +881,7 @@ public final class CowTreeMap<K,V> extends AbstractMap<K,V> implements CowOrdere
     }
 
     @Override
-    public CowOrderedMap<K, V> fork() {
+    public CowTreeMap<K, V> fork() {
         return new CowTreeMap<>(++generation, size, root, comparator);
     }
 

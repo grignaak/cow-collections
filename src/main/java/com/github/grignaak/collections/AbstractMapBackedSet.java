@@ -6,18 +6,14 @@ import java.util.Iterator;
 import java.util.Spliterator;
 
 abstract class AbstractMapBackedSet<T> extends AbstractSet<T> implements CowSet<T> {
-    protected final CowMap<T, Boolean> impl;
-
-    AbstractMapBackedSet(CowMap<T, Boolean> impl) {
-        this.impl = impl;
-    }
+    protected abstract CowMap<T, Boolean> backingMap();
 
     /**
      * {@inheritDoc}
      */
     @Override
     public int size() {
-        return impl.size();
+        return backingMap().size();
     }
 
     /**
@@ -25,7 +21,7 @@ abstract class AbstractMapBackedSet<T> extends AbstractSet<T> implements CowSet<
      */
     @Override
     public boolean isEmpty() {
-        return impl.isEmpty();
+        return backingMap().isEmpty();
     }
 
     /**
@@ -34,7 +30,7 @@ abstract class AbstractMapBackedSet<T> extends AbstractSet<T> implements CowSet<
     @Override
     public boolean contains(Object o) {
         //noinspection SuspiciousMethodCalls
-        return impl.containsKey(o);
+        return backingMap().containsKey(o);
     }
 
     /**
@@ -42,7 +38,7 @@ abstract class AbstractMapBackedSet<T> extends AbstractSet<T> implements CowSet<
      */
     @Override
     public Iterator<T> iterator() {
-        return impl.keySet().iterator();
+        return backingMap().keySet().iterator();
     }
 
     /**
@@ -50,7 +46,7 @@ abstract class AbstractMapBackedSet<T> extends AbstractSet<T> implements CowSet<
      */
     @Override
     public Object[] toArray() {
-        return impl.keySet().toArray();
+        return backingMap().keySet().toArray();
     }
 
     /**
@@ -58,7 +54,7 @@ abstract class AbstractMapBackedSet<T> extends AbstractSet<T> implements CowSet<
      */
     @Override
     public <T1> T1[] toArray(T1[] a) {
-        return impl.keySet().toArray(a);
+        return backingMap().keySet().toArray(a);
     }
 
     /**
@@ -66,7 +62,7 @@ abstract class AbstractMapBackedSet<T> extends AbstractSet<T> implements CowSet<
      */
     @Override
     public boolean add(T o) {
-        return impl.put(o, Boolean.TRUE) != null;
+        return backingMap().put(o, Boolean.TRUE) != null;
     }
 
     /**
@@ -74,7 +70,7 @@ abstract class AbstractMapBackedSet<T> extends AbstractSet<T> implements CowSet<
      */
     @Override
     public boolean remove(Object o) {
-        return impl.remove(o) != null;
+        return backingMap().remove(o) != null;
     }
 
     /**
@@ -82,7 +78,7 @@ abstract class AbstractMapBackedSet<T> extends AbstractSet<T> implements CowSet<
      */
     @Override
     public boolean containsAll(Collection<?> c) {
-        return impl.keySet().containsAll(c);
+        return backingMap().keySet().containsAll(c);
     }
 
     /**
@@ -90,7 +86,7 @@ abstract class AbstractMapBackedSet<T> extends AbstractSet<T> implements CowSet<
      */
     @Override
     public boolean retainAll(Collection<?> c) {
-        return impl.keySet().retainAll(c);
+        return backingMap().keySet().retainAll(c);
     }
 
     /**
@@ -98,7 +94,7 @@ abstract class AbstractMapBackedSet<T> extends AbstractSet<T> implements CowSet<
      */
     @Override
     public boolean removeAll(Collection<?> c) {
-        return impl.keySet().removeAll(c);
+        return backingMap().keySet().removeAll(c);
     }
 
     /**
@@ -106,7 +102,7 @@ abstract class AbstractMapBackedSet<T> extends AbstractSet<T> implements CowSet<
      */
     @Override
     public void clear() {
-        impl.clear();
+        backingMap().clear();
     }
 
     /**
@@ -114,7 +110,7 @@ abstract class AbstractMapBackedSet<T> extends AbstractSet<T> implements CowSet<
      */
     @Override
     public boolean equals(Object o) {
-        return impl.keySet().equals(o);
+        return backingMap().keySet().equals(o);
     }
 
     /**
@@ -122,7 +118,7 @@ abstract class AbstractMapBackedSet<T> extends AbstractSet<T> implements CowSet<
      */
     @Override
     public int hashCode() {
-        return impl.keySet().hashCode();
+        return backingMap().keySet().hashCode();
     }
 
     /**
@@ -130,6 +126,6 @@ abstract class AbstractMapBackedSet<T> extends AbstractSet<T> implements CowSet<
      */
     @Override
     public Spliterator<T> spliterator() {
-        return impl.keySet().spliterator();
+        return backingMap().keySet().spliterator();
     }
 }

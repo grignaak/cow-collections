@@ -1,8 +1,13 @@
 package com.github.grignaak.collections;
 
+import static java.util.Arrays.asList;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertThat;
+
 import org.junit.Test;
 
 public class ExamplesTest {
+
     @Test
     public void run() {
         CowList<String> beatles = new CowArrayList<>();
@@ -20,7 +25,7 @@ public class ExamplesTest {
         famous.add( "paul" );
         famous.add( "mary" );
 
-        System.out.println("beatles: " + beatles);
-        System.out.println("famous: " + famous);
+        assertThat(beatles, is(asList("john", "paul", "george", "ringo", "pete")));
+        assertThat(famous, is(asList("john", "paul", "george", "ringo", "peter", "paul", "mary")));
     }
 }

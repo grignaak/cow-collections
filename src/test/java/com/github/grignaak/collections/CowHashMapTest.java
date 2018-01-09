@@ -595,6 +595,49 @@ public class CowHashMapTest {
         checkThat(d, hasEntry(C, 3));
     }
 
+
+    @Test
+    public void iteratorFollowsOriginal_bitmapNodes() {
+        Hasher A = new Hasher(0);
+        Hasher B = new Hasher(0);
+        Hasher C = new Hasher(0);
+
+        b.put(A, 1);
+        b.put(B, 1);
+
+        Iterator<Integer> fromBeginning = b.values().iterator();
+        Iterator<Integer> fromMiddle = b.values().iterator();
+
+        fromMiddle.next();
+        fromMiddle.next();
+        CowMap<Object, Integer> c = b.fork();
+
+        c.put(C, 2);
+        checkThat(fromMiddle.hasNext(), is(false));
+
+        fromBeginning.next();
+        fromBeginning.next();
+        checkThat(fromBeginning.hasNext(), is(false));
+    }
+
+
+    @Test
+    public void iteratorFollowsOriginal_hashNodes() {
+        b.put("a", 1);
+
+        Iterator<Integer> fromBeginning = b.values().iterator();
+        Iterator<Integer> fromMiddle = b.values().iterator();
+
+        fromMiddle.next();
+        CowMap<Object, Integer> c = b.fork();
+
+        c.put("b", 2);
+        checkThat(fromMiddle.hasNext(), is(false));
+
+        fromBeginning.next();
+        checkThat(fromBeginning.hasNext(), is(false));
+    }
+
     @Test
     public void exerciseNewNodeCases() {
         // hashing

@@ -1097,7 +1097,7 @@ public class CowHashMap<K,V> implements CowMap<K,V> {
     }
 
     @Override
-    public CowMap<K, V> fork() {
+    public CowHashMap<K, V> fork() {
         return new CowHashMap<>(++generation, root, size);
     }
 

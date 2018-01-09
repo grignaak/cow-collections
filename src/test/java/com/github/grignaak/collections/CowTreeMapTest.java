@@ -9,9 +9,13 @@ import static org.hamcrest.Matchers.sameInstance;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assume.assumeThat;
 
+import java.util.AbstractMap.SimpleImmutableEntry;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.stream.IntStream;
@@ -144,6 +148,35 @@ public class CowTreeMapTest {
         clone.put("one", "two");
         assertThat(b, is(expected));
         assertThat(clone, hasEntry("one", "two"));
+    }
+
+    @Test
+    public void iteratorFollowsOriginal() {
+        String[] elements = range(99);
+        for (String e : elements) {
+            b.put(e, e);
+        }
+
+        int I = 18;
+        Iterator<Map.Entry<String, Object>> iter = b.entrySet().iterator();
+        List<Object> consumedValues = new ArrayList<>(b.size());
+
+        for (int i = 0; i < I; i++) {
+            consumedValues.add( iter.next().getValue() );
+        }
+
+        Map<String, Object> other = b.fork();
+        other.put(elements[I], "changed-element");
+
+        while (iter.hasNext()) {
+            consumedValues.add( iter.next().getValue() );
+        }
+
+        assertThat(consumedValues, is(Arrays.asList(elements)));
+    }
+
+    private <K,V> Map.Entry<K,V> entry(K key, V value) {
+        return new SimpleImmutableEntry<>(key, value);
     }
 
     @Test
