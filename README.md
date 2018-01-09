@@ -31,16 +31,16 @@ Add the following to your build script
 
 ```xml
 <dependency>
-    <groupId>com.github.grignaak.collections</groupId>
+    <groupId>com.github.grignaak</groupId>
     <artifactId>cow-collections</artifactId>
-    <version>0.9.16</version>
+    <version>0.10.0</version>
 </dependency>
 ```
 
 **Gradle**
 
 ```groovy
-compile 'com.github.grignaak.collections:cow-collections:0.9.16'
+compile 'com.github.grignaak:cow-collections:0.10.0'
 ```
 
 ### Example
