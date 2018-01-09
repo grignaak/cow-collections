@@ -2,7 +2,6 @@
 
 ![Current version][version-img]
 [![Javadoc][javadoc-img]][javadoc-url]
-![Develepment version][snap-version-img]
 [![Build Status][travis-img]][travis-url]
 ![Cow][cow-image]
 [![MIT License][license-image]][license-url]
@@ -47,7 +46,7 @@ compile 'com.github.grignaak:cow-collections:0.10.0'
 ### Example
 
 ```java
-CowList<String> beatles = new CowList<>()
+CowList<String> beatles = new CowArrayList<>()
 
 beatles.add( "john" );
 beatles.add( "paul" );
@@ -127,31 +126,40 @@ come before.
 * The old [PCollections][p-colls] library.
 
   PCollections was the de facto standard on the jdk for many years. We
-  don't quite like the implementations and API, which led us to make
-  this library, but we used it for many projects and it served for a
-  long time.
+  don't quite like the implementations and API, which eventually led us
+  to make this library, but we used it for many projects and it served
+  for a long time.
 
 * The [Clojure collections][clojure-colls].
 
   Clojure's implementations improved a lot on PCollections, bringing
   more efficient lists and hash maps.
 
-  We originally copied Clojure's API split of *immutable* interfaces and
-  corresponding [*transient* interfaces][clojure-trans]. The transient
-  interfaces gave a way for fast, gc-friendly batch input. But early
-  feedback moved us toward the current *fork* API. This made the API
-  much simpler, while remaining fast and gc-friendly.
-
-* [clj-ds][clj-ds] is an attempt to extract Clojure's collections into
+  [clj-ds][clj-ds] is an attempt to extract Clojure's collections into
   their own library. Unfortunately, the collections are *highly* coupled
   to the clojure runtime, so large swaths of that are also brought
   along.
 
+  This project (cow-collections) started out as an attempt to clean up
+  clj-ds but ended up with entirely new APIs and implementations.
+
+  We originally kept Clojure's API split of *immutable* interfaces and
+  corresponding [*transient* interfaces][clojure-trans]. The transient
+  interfaces gave a way for fast, gc-friendly batch input. But early
+  feedback moved us toward the current *fork* API. This made usage much
+  simpler, while remaining fast and gc-friendly.
+
 * Google [Guava's Immutable collections][guava-colls]. This library
-  provides needed type safety, but the shear amount of data copying has
-  turned us off towards it.
+  provides needed type safety, but the sheer amount of data copying has
+  turned us off towards the Immutables for large collections. The
+  cow-collection developers still use Guava for lots of other things,
+  though.
 
+* Other functional-friendly languages' collections are very similar to
+  either PCollections' or Clojure's, and we looked at several before
+  going forward this project.
 
+------------
 
 ```text
           .        .
@@ -189,7 +197,6 @@ come before.
 [javadoc-url]:            https://javadoc.io/doc/com.github.grignaak/cow-collections
 [version-img]:            https://img.shields.io/badge/Version-0.10.0_(Beta)-yellow.svg
 [version-url]:            https://search.maven.org/#artifactdetails%7Ccom.github.grignaak%7Ccow-collections%7C0.10.0%7Cjar
-[snap-version-img]:       https://img.shields.io/badge/Development-0.10.1--SNAPSHOT-yellow.svg
 
 [travis-img]:   https://travis-ci.org/grignaak/cow-collections.svg?branch=master
 [travis-url]:   https://travis-ci.org/grignaak/cow-collections
