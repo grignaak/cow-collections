@@ -1,5 +1,5 @@
 group 'com.github.grignaak'
-version '0.10.0'
+version '0.10.1-SNAPSHOT'
 
 ext.isReleaseVersion = !version.endsWith("SNAPSHOT")
 
@@ -64,7 +64,7 @@ uploadArchives {
                 name 'cow collections'
                 packaging 'jar'
                 description 'Copy-on-write collections for easy, thread-safe, immutability'
-                url 'http://github.com/grignnak/cow-collections'
+                url 'http://github.com/grignaak/cow-collections'
 
                 scm {
                     url 'scm:git@github.com:grignaak/cow-collections.git'

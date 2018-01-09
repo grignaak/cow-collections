@@ -184,8 +184,8 @@ come before.
 [license-image]:          http://img.shields.io/badge/license-MIT-blue.svg
 [license-url]:            LICENSE
 [cow-image]:              https://img.shields.io/badge/Cow-🐄-eeeeee.svg
-[version-img]:            https://img.shields.io/badge/Version-0.9.16_(Beta)-yellow.svg
-[snap-version-img]:       https://img.shields.io/badge/Development-0.10.0--SNAPSHOT-yellow.svg
+[version-img]:            https://img.shields.io/badge/Version-0.10.0_(Beta)-yellow.svg
+[snap-version-img]:       https://img.shields.io/badge/Development-0.10.1--SNAPSHOT-yellow.svg
 
 [travis-img]:   https://travis-ci.org/grignaak/cow-collections.svg?branch=master
 [travis-url]:   https://travis-ci.org/grignaak/cow-collections
