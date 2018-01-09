@@ -142,7 +142,7 @@ come before.
   much simpler, while remaining fast and gc-friendly.
 
 * [clj-ds][clj-ds] is an attempt to extract Clojure's collections into
-  their own library. Unfortunately, the collections are highly* coupled
+  their own library. Unfortunately, the collections are *highly* coupled
   to the clojure runtime, so large swaths of that are also brought
   along.
 
