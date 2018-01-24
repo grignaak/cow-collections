@@ -36,4 +36,17 @@ public class CowCollectorsTest {
 
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void testToOrderedCowSet() {
+        Collection<Integer> numbers = Arrays.asList(5, 4, 3, 3, -2, -1, 2, 2, -1, 4, 5);
+
+        final Set<Integer> expected = new HashSet<>(Arrays.asList(2, 3, 4, 5));
+
+        CowSet<Integer> actual = numbers.stream()
+                .filter(number -> number >= 0)
+                .collect(CowCollectors.toOrderedCowSet());
+
+        assertEquals(expected, actual);
+    }
 }
