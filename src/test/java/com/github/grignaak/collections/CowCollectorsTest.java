@@ -4,9 +4,13 @@ import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.function.Supplier;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import static org.junit.Assert.assertEquals;
 
@@ -45,7 +49,7 @@ public class CowCollectorsTest {
 
         CowSet<Integer> actual = numbers.stream()
                 .filter(number -> number >= 0)
-                .collect(CowCollectors.toOrderedCowSet());
+                .collect(CowCollectors.toOrderedCowSet(Comparator.naturalOrder()));
 
         assertEquals(expected, actual);
     }

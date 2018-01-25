@@ -29,19 +29,9 @@ public final class CowCollectors {
                 Characteristics.UNORDERED, Characteristics.IDENTITY_FINISH);
     }
 
-    public static <T extends Comparable<T>> Collector<T, ?, CowSet<T>> toOrderedCowSet() {
-        BinaryOperator<CowSet<T>> combiner = (left, right) -> {
-            left.addAll(right);
-            return left;
-        };
-
-        // noinspection Convert2Diamond
-        return Collector.of(
-                () -> new CowTreeSet<T>(Comparator.naturalOrder()),
-                Set::add,
-                combiner,
-                Function.identity(),
-                Characteristics.IDENTITY_FINISH);
+    public static <T> Collector<T, ?, CowSet<T>> toOrderedCowSet(Comparator<? super T> comparator) {
+        // noinspection unchecked
+        return Collectors.toCollection(() -> new CowTreeSet<>((Comparator<T>) comparator));
     }
 
     private CowCollectors() {
