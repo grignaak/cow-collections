@@ -1,7 +1,6 @@
-package com.github.grignaak.collections.impl;
+package com.github.grignaak.collections;
 
-@Beta
-public class Box<T> {
+class Box<T> {
     private T boxed;
 
     public void box(T boxed) {

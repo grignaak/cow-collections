@@ -1,10 +1,9 @@
-package com.github.grignaak.collections.impl;
+package com.github.grignaak.collections;
 
 /**
  * Can't use Optional as search results b/c null values can also mean "present".
  */
-@Beta
-public class Search<T> {
+class Search<T> {
     private static final Search<?> NOT_FOUND = new Search<>(null);
 
     private final T value;

@@ -11,6 +11,8 @@ import static java.util.stream.Collector.Characteristics;
 
 @SuppressWarnings("WeakerAccess")
 public final class CowCollectors {
+    private CowCollectors() {/*utility*/}
+    
     public static <T> Collector<T, ?, CowList<T>> toCowList() {
         return Collectors.toCollection(CowArrayList::new);
     }
@@ -32,8 +34,5 @@ public final class CowCollectors {
     public static <T> Collector<T, ?, CowSet<T>> toOrderedCowSet(Comparator<? super T> comparator) {
         // noinspection unchecked
         return Collectors.toCollection(() -> new CowTreeSet<>((Comparator<T>) comparator));
-    }
-
-    private CowCollectors() {
     }
 }

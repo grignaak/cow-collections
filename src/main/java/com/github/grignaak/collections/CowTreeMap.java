@@ -10,8 +10,6 @@ import java.util.Objects;
 import java.util.Set;
 import javax.annotation.Nonnull;
 
-import com.github.grignaak.collections.impl.MoreArrays;
-
 /**
  * An ordered, tree-based copy-on-write map, utilizing shared structure when feasible.
  *

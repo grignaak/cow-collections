@@ -1,4 +1,4 @@
-package com.github.grignaak.collections.impl;
+package com.github.grignaak.collections;
 
 /**
  * This gets passed to nodes during an update so the inner leaves can return modification
@@ -10,8 +10,7 @@ package com.github.grignaak.collections.impl;
  *     <li>replacedValue != null implies isReplaced</li>
  * </ul>
  */
-@Beta
-public class Change<V> {
+class Change<V> {
     private V replacedValue;
     private boolean isModified;
     private boolean isReplaced;

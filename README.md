@@ -33,14 +33,14 @@ Add the following to your build script
 <dependency>
     <groupId>com.github.grignaak</groupId>
     <artifactId>cow-collections</artifactId>
-    <version>0.10.0</version>
+    <version>1.0.0</version>
 </dependency>
 ```
 
 **Gradle**
 
 ```groovy
-compile 'com.github.grignaak:cow-collections:0.10.0'
+compile 'com.github.grignaak:cow-collections:1.0.0'
 ```
 
 ### Example
@@ -195,8 +195,8 @@ come before.
 [cow-image]:              https://img.shields.io/badge/Cow-🐄-eeeeee.svg
 [javadoc-img]:            https://javadoc.io/badge/com.github.grignaak/cow-collections.svg
 [javadoc-url]:            https://javadoc.io/doc/com.github.grignaak/cow-collections
-[version-img]:            https://img.shields.io/badge/Version-0.10.0_(Beta)-yellow.svg
-[version-url]:            https://search.maven.org/#artifactdetails%7Ccom.github.grignaak%7Ccow-collections%7C0.10.0%7Cjar
+[version-img]:            https://img.shields.io/badge/Version-1.0.0-green.svg
+[version-url]:            https://search.maven.org/#artifactdetails%7Ccom.github.grignaak%7Ccow-collections%7C1.0.0%7Cjar
 
 [travis-img]:   https://travis-ci.org/grignaak/cow-collections.svg?branch=master
 [travis-url]:   https://travis-ci.org/grignaak/cow-collections

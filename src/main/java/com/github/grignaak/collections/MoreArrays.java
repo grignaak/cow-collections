@@ -1,7 +1,6 @@
-package com.github.grignaak.collections.impl;
+package com.github.grignaak.collections;
 
-@Beta
-public class MoreArrays {
+class MoreArrays {
     private MoreArrays() {/* utility */}
 
     public static Object[] arrayCopyAndAppend(Object[] src, Object appended) {
